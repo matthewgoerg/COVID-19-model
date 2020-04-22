@@ -1,0 +1,214 @@
+
+
+// Variables for Bootstrap and OHSU default breakpoints
+$xs: 480px; // same as OHSU Small
+$sm: 768px; // same as OHSU Medium
+$md: 992px;
+$nav: 960px; // OHSU show/hide navigation breakpoint
+$lg: 1200px; // OHSU lg = 1024
+$xl: 1280px;
+$breakpointBleedMax: 1308px;
+
+// Additional variables
+$gutter: 15px; // 50% of BS3 default gutter/padding (@grid-gutter-width: 30px)
+
+
+body {
+  font: 100%/1.6175 Lato, Helvetica, Arial, sans-serif;
+}
+
+h1 small {
+  display: block;
+  @media (min-width: $nav) {
+    display: inline;
+    font-size: 50%;
+  }
+}
+
+// Normalize H3 size
+h3 {
+  font-size: 1.5rem;
+}
+
+// Fix double bottom line on abbreviations
+// BS3 and OHSU CSS both add a different dashed border
+abbr[title] {
+  border-bottom: none;
+}
+
+
+/* No menu toggle on this app so go full width */
+.nav-home {
+  width: 100%;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    width: $breakpointBleedMax;
+  }
+}
+
+// Layout adjustments
+.main-content {
+  margin-top: 90px;
+  @media (min-width: $nav) {
+    margin-top: 0;
+  }
+
+  // Remove double margins on main layout containers when full-width (small screens)
+  // Outer container already sets 15px of padding
+  > .col-sm-5,
+  > .col-sm-7 {
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+  }
+
+  > .col-sm-5 {
+    // Reset to BS3 default for larger screens
+    @media (min-width: $nav) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    > .well {
+      // Truncate form height on small screens
+      max-height: 60vh;
+      overflow-y: scroll;
+      padding: 10px;
+      @media (min-width: $sm) {
+        // Reset on larger screens
+        max-height: none;
+        overflow-y: auto;
+      }
+      @media (min-width: $md) {
+        padding: 18px;
+      }
+    }
+  }
+  > .col-sm-7 {
+    // Reset to BS3 default for larger screens
+    @media (min-width: $sm) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.site-header {
+  border-bottom: 2px solid #0e4d8f;
+  @media (min-width: $nav) {
+    border-bottom: 0 none;
+  }
+  .header-title__name  {
+    @media (max-width: $sm) {
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+  }
+}
+
+// Normalization for BS3 '.row' vs OHSU '.row'
+.row,
+.row .row {
+  padding: 0;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
+  width: auto;
+}
+
+
+// Adjust form rows
+.form-row {
+  .col-label {
+    font-size: 0.9em;
+    font-weight: bold;
+    line-height: 1.1;
+    padding-top: 8px;
+    @media (min-width: $sm) {
+      font-size: 0.8em;
+    }
+    @media (min-width: $lg) {
+       font-size: 1em;
+    }
+  }
+  .col-inputs {
+    padding-left: 0;
+    padding-right: 0;
+    @media (min-width: $sm) {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+    .row {
+      margin-right: 0;
+    }
+  }
+
+  // Tighten input container columns at smaller sizes
+  .col-input {
+    padding: 0 8px;
+    @media (min-width: $sm) {
+      padding: 0 2px;
+    }
+    @media (min-width: $xl) {
+      padding: 0 12px;
+    }
+
+    .form-control {
+      padding: 6px 9px;
+      @media (min-width: $md) {
+        padding: 6px 12px;
+      }
+    }
+  }
+
+}
+
+// Adjust form row headings/labels
+.form-row__heading-row {
+  font-size: 80%;
+  font-weight: bold;
+  text-align: center;
+  @media (min-width: $lg) {
+    font-size: 100%;
+  }
+  .col-date {
+    text-align: left;
+  }
+}
+
+
+.form-row--flex {
+  display: flex;
+}
+
+// Make dataset select and download but appear on one line.
+.form-row--dataset {
+  justify-content: space-between;
+  align-items: center;
+  > .form-group {
+    flex-grow: 1;
+    padding-right: 1em;
+  }
+}
+
+
+
+
+// Try to keep tabs from wrapping on small screens
+.nav-tabs > li {
+  a {
+    padding: 10px 6px;
+    font-size: 87%;
+    //  And reset for larger screens
+    @media (min-width: $xs) {
+      font-size: inherit;
+    }
+    @media (min-width: $sm) {
+      padding: 10px 7px 10px 6px;
+    }
+    @media (min-width: $sm+90) {
+      padding: 10px $gutter;
+    }
+  }
+}
