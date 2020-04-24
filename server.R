@@ -387,8 +387,6 @@ server <- function(input, output, session) {
     }
     
     y_limit <- 50
-    
-    write.csv(display_plot, "C:/Users/goerg/Desktop/disp.csv")
 
     p <- ggplot(display_plot, aes(date, group = adm_type, color = adm_type)) + 
       geom_line(aes(date, moderate), size = 1.5) +

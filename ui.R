@@ -36,15 +36,6 @@ ui <- bootstrapPage(
 tags$main(id='app', class='layout-full-width main-content container-fluid',
 
   column(5, wellPanel(
-                      
-                      div(class='form-row--flex form-row--dataset',
-                          # Input: Choose dataset ----
-                        selectInput("dataset", "Choose a dataset:",
-                                    choices = c("master")),
-
-                        # Button
-                        downloadButton("downloadData", "Download"),
-                      ),
 
                       h3("Scenario variables"),
                       div(class='form-row--scenario-variables__heading-row form-row__heading-row',
