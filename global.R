@@ -14,3 +14,8 @@ los_aac <- "average length of stay (in days) in Adult Acute Care (AAC) units suc
 los_icu <- "average length of stay (in days) for patients who are admitted to the ICU"
 days_til_hosp_aac <- "number of days after infection that patient is admitted to AAC"
 days_til_hosp_icu <- "number of days after infection that patient is admitted to the ICU"
+
+# OHSU logo colors
+color_ohsu_logo__yellow <- "#ffca38"
+color_ohsu_logo__blue <- "#5d97c9"
+color_ohsu_logo__green <- "#56b146"

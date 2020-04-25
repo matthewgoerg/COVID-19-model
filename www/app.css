@@ -78,3 +78,8 @@ abbr[title] { border-bottom: none; }
 @media (min-width: 768px) { .nav-tabs > li a { padding: 10px 7px 10px 6px; } }
 
 @media (min-width: 858px) { .nav-tabs > li a { padding: 10px 15px; } }
+
+/* Graphs and plots */
+.modebar-container { top: 1.5rem !important; }
+
+.js-plotly-plot .plot-container.plotly { padding-top: 1em; }

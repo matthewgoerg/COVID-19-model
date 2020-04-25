@@ -71,8 +71,11 @@ server <- function(input, output, session) {
       theme_minimal() + theme(legend.position = "bottom") + ylab("factor") +
       labs(title = "Intervention Factor")
     
-    fig <- ggplotly(p) %>% layout(height = 600, width = 1000)
-    
+    # Get a dynamic width based on client screen size
+    cl_width  <- session$clientData$output_image_width
+    cl_height <- session$clientData$output_image_height
+    fig <- ggplotly(p) %>% layout(height = cl_height, width = cl_width)
+
     fig
     
   })
@@ -387,8 +390,8 @@ server <- function(input, output, session) {
     }
     
     y_limit <- 50
-
-    p <- ggplot(display_plot, aes(date, group = adm_type, color = adm_type)) + 
+    
+    p <- ggplot(display_plot, aes(date, group = adm_type, color = adm_type)) +
       geom_line(aes(date, moderate), size = 1.5) +
       scale_x_date(date_labels = "%B") +
       geom_ribbon(aes(ymin=low, ymax=high, group = adm_type, color = adm_type, fill = adm_type),
@@ -398,11 +401,14 @@ server <- function(input, output, session) {
       geom_hline(yintercept = number_of_beds, linetype = "dashed", alpha = 0.4) +
       theme_minimal() + theme(legend.title = element_blank()) +
       coord_cartesian(ylim=c(0, y_limit)) + ylab("census") +
-      scale_color_manual(values=c("green", "blue", "red")) +
-      scale_fill_manual(values=c("green", "blue", "red")) +
+      scale_color_manual(values=c(color_ohsu_logo__yellow, color_ohsu_logo__blue, color_ohsu_logo__green)) +
+      scale_fill_manual(values=c(color_ohsu_logo__yellow, color_ohsu_logo__blue, color_ohsu_logo__green)) +
       labs(title = "Predicted Hospital Census Over Time")
 
-    fig <- ggplotly(p, height = 600, width = 1000) %>%
+    # Get a dynamic width based on client screen size
+    cl_width  <- session$clientData$output_image_width
+    cl_height <- session$clientData$output_image_height
+    fig <- ggplotly(p, height = cl_height, width = cl_width) %>%
       add_annotations( text="Type", xref="paper", yref="paper",
                        x=1.02, xanchor="left",
                        y=0.8, yanchor="bottom",    # Same y as legend below

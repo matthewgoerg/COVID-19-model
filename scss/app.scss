@@ -11,6 +11,11 @@ $breakpointBleedMax: 1308px;
 
 // Additional variables
 $gutter: 15px; // 50% of BS3 default gutter/padding (@grid-gutter-width: 30px)
+// Colors extracted from OHSU logo SVG
+$logo__yellow: #ffca38;
+$logo__blue: #5d97c9;
+$logo__green: #56b146;
+$logo__gray: #585e60;
 
 
 body {
@@ -211,4 +216,16 @@ abbr[title] {
       padding: 10px $gutter;
     }
   }
+}
+
+/*
+ * Graphs and plots
+ */
+// Keep the toolbar and the title from overlapping
+.modebar-container {
+  top: 1.5rem !important;
+}
+// A little top breathing room
+.js-plotly-plot .plot-container.plotly {
+  padding-top: 1em;
 }
