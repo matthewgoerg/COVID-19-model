@@ -389,7 +389,8 @@ server <- function(input, output, session) {
       }
     }
     
-    y_limit <- 50
+    # removing this to make the y-axis display range flexible
+    # y_limit <- 50
     
     p <- ggplot(display_plot, aes(date, group = adm_type, color = adm_type)) +
       geom_line(aes(date, moderate), size = 1.5) +
@@ -400,7 +401,8 @@ server <- function(input, output, session) {
                   size=1) +
       geom_hline(yintercept = number_of_beds, linetype = "dashed", alpha = 0.4) +
       theme_minimal() + theme(legend.title = element_blank()) +
-      coord_cartesian(ylim=c(0, y_limit)) + ylab("census") +
+      # coord_cartesian(ylim=c(0, y_limit)) + 
+      # ylab("census") +
       scale_color_manual(values=c(color_ohsu_logo__yellow, color_ohsu_logo__blue, color_ohsu_logo__green)) +
       scale_fill_manual(values=c(color_ohsu_logo__yellow, color_ohsu_logo__blue, color_ohsu_logo__green)) +
       labs(title = "Predicted Hospital Census Over Time")
