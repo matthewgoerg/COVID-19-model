@@ -402,7 +402,7 @@ server <- function(input, output, session) {
       geom_hline(yintercept = number_of_beds, linetype = "dashed", alpha = 0.4) +
       theme_minimal() + theme(legend.title = element_blank()) +
       # coord_cartesian(ylim=c(0, y_limit)) + 
-      # ylab("census") +
+      ylab("census") +
       scale_color_manual(values=c(color_ohsu_logo__yellow, color_ohsu_logo__blue, color_ohsu_logo__green)) +
       scale_fill_manual(values=c(color_ohsu_logo__yellow, color_ohsu_logo__blue, color_ohsu_logo__green)) +
       labs(title = "Predicted Hospital Census Over Time")
